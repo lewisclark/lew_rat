@@ -7,7 +7,7 @@ void log_message(const char* log) {
 	fprintf(log_file, "[%s - %s] %s", __DATE__, __TIME__, log); // TODO: Write encrypted log to file, decrypt on server
 	fclose(log_file);
 
-	//printf("[%s - %s] %s", __DATE__, __TIME__, log);
+	printf("%s\n", log);
 }
 
 void log_message_wstr(const wchar_t* log) {
@@ -17,5 +17,5 @@ void log_message_wstr(const wchar_t* log) {
 	fprintf(log_file, "[%s - %s] %S", __DATE__, __TIME__, log); // TODO: Write encrypted log to file, decrypt on server
 	fclose(log_file);
 
-	//printf("[%s - %s] %s", __DATE__, __TIME__, log);
+	printf("%s\n", log);
 }
