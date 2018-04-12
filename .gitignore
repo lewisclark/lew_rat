@@ -1,0 +1,11 @@
+*.log
+*.user
+*.filters
+*.vcxproj
+*.sln
+client/src/.vs/
+client/src/Debug/
+client/src/Release/
+server/src/.vs/
+server/src/Debug/
+server/src/Release/
