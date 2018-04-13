@@ -34,6 +34,31 @@ void remove_client_element(const struct ClientElement* const p_client_element) {
 	free((void*)p_client_element);
 }
 
+void client_loop() {
+	while (1) {
+		struct ClientElement* cur_element = p_client_element_head;
+
+		while (cur_element != NULL) {
+			struct Client* p_client = cur_element->p_client;
+
+			if (has_timed_out(p_client)) {
+				printf("Client %s has timed out\n", p_client->p_system_info->system_guid);
+
+				struct ClientElement* next_element = cur_element->p_client_element_next;
+				remove_client_element(cur_element);
+				cur_element = next_element;
+				continue;
+			}
+
+			cur_element = cur_element->p_client_element_next;
+		}
+
+		print_clients();
+
+		Sleep(2500);
+	}
+}
+
 struct Client* get_client(const char* const client_system_guid) {
 	struct ClientElement* cur_element = p_client_element_head;
 	while (cur_element != NULL) {

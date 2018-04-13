@@ -22,6 +22,7 @@ struct ClientElement {
 
 extern struct ClientElement* add_client(unsigned long ip_addr, struct SystemInfo* p_system_info);
 extern void remove_client_element(const struct ClientElement* const p_client_element);
+extern void client_loop(); // Check clients for timeout, etc.
 extern struct Client* get_client(const char* const client_system_guid);
 extern void print_clients();
 struct ClientElement* get_client_element(const struct Client* const p_client);

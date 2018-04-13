@@ -8,8 +8,6 @@ int init_networking() {
 		return 1;
 	}
 
-	printf("Listening on socket...\n");
-
 	struct sockaddr_in client;
 	int addrlen = sizeof(struct sockaddr_in);
 	SOCKET socket_client;
@@ -119,8 +117,6 @@ int handle_client_network_message(enum ClientNetworkMessageType payload_type, co
 
 		break;
 	}
-
-	print_clients();
 
 	//printf("%s\n", payload_json);
 
