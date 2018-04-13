@@ -10,7 +10,6 @@
 #pragma comment(lib, "ws2_32.lib")
 
 extern int init_networking();
-extern int send_log_file_contents(SOCKET* sock);
 extern int init_socket(SOCKET* socket_out);
 extern int close_socket(SOCKET* sock);
 
