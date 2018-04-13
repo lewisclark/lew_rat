@@ -8,8 +8,6 @@ int init_networking() {
 		return 1;
 	}
 
-	CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)heartbeat_loop, NULL, 0, NULL);
-
 	send_system_info_payload();
 
 	return 0;
@@ -46,24 +44,6 @@ int close_socket(SOCKET* sock) {
 		log_message("Failed to close socket\n");
 
 		return 1;
-	}
-
-	return 0;
-}
-
-// TODO: Seperate file for heartbeat
-int heartbeat() {
-	//if (!send_payload(json_value_init_object(), CLIENTPAYLOADTYPE_HEARTBEAT))
-		//return 1;
-
-	return 0;
-}
-
-DWORD heartbeat_loop(void* param) {
-	while (1) {
-		heartbeat();
-
-		Sleep(5000);
 	}
 
 	return 0;

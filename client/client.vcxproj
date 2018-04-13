@@ -22,6 +22,7 @@
     <ClInclude Include="src\constants.h" />
     <ClInclude Include="src\networking\client_payload_type.h" />
     <ClInclude Include="src\networking\networking.h" />
+    <ClInclude Include="src\payload\heartbeat.h" />
     <ClInclude Include="src\payload\payload.h" />
     <ClInclude Include="src\payload\system.h" />
     <ClInclude Include="src\util\parson.h" />
@@ -30,6 +31,7 @@
   <ItemGroup>
     <ClCompile Include="src\main.c" />
     <ClCompile Include="src\networking\networking.c" />
+    <ClCompile Include="src\payload\heartbeat.c" />
     <ClCompile Include="src\payload\payload.c" />
     <ClCompile Include="src\payload\system.c" />
     <ClCompile Include="src\util\parson.c" />
