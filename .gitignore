@@ -3,9 +3,9 @@
 *.filters
 *.vcxproj
 *.sln
-client/src/.vs/
-client/src/Debug/
-client/src/Release/
-server/src/.vs/
-server/src/Debug/
-server/src/Release/
+src/client/.vs/
+src/client/Debug/
+src/client/Release/
+src/server/.vs/
+src/server/Debug/
+src/server/Release/
