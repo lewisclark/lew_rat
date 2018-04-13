@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <ws2tcpip.h>
 #include "constants.h"
-#include "system.h"
+#include "payload/system.h"
 #include "client_payload_type.h"
 #include "client.h"
 

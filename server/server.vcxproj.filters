@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{5fe9d7b1-e36a-4da2-b4e8-0bf8d3321b2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\networking">
+      <UniqueIdentifier>{554ae85a-9c78-4f75-8c42-dd4271b2dd73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\payload">
+      <UniqueIdentifier>{57e44639-5268-4509-828f-41653e4d2b38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{a276852a-abf7-4a8b-89e7-3725cb45a760}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\client.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\parson.c">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\payload\system.c">
+      <Filter>src\payload</Filter>
+    </ClCompile>
+    <ClCompile Include="src\networking\networking.c">
+      <Filter>src\networking</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\client.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\constants.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\parson.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\payload\system.h">
+      <Filter>src\payload</Filter>
+    </ClInclude>
+    <ClInclude Include="src\networking\client_payload_type.h">
+      <Filter>src\networking</Filter>
+    </ClInclude>
+    <ClInclude Include="src\networking\networking.h">
+      <Filter>src\networking</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

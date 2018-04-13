@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <Lmcons.h>
-#include "parson.h"
+#include "util/parson.h"
 
 enum WindowsVersion {
 	WINDOWSVERSION_UNKNOWN,

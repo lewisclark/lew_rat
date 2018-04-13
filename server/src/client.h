@@ -4,9 +4,9 @@
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "parson.h"
+#include "util/parson.h"
 #include "constants.h"
-#include "system.h"
+#include "payload/system.h"
 
 // TODO: Seperate ClientElement list stuff?
 

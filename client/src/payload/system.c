@@ -1,9 +1,13 @@
 #include "system.h"
 
-int send_system_info() {
+int send_system_info_payload() {
 	struct SystemInfo* p_system_info = get_system_info();
 
-	if (send_payload(serialize_system_info(p_system_info), CLIENTPAYLOADTYPE_SYSTEMINFO));
+	struct Payload payload;
+	payload.client_payload_type = CLIENTPAYLOADTYPE_SYSTEMINFO;
+	payload.json_value_payload = serialize_system_info(p_system_info);
+
+	if (send_payload(payload));
 		return 1;
 
 	free_system_info(p_system_info);

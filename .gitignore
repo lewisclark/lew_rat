@@ -1,6 +1,5 @@
 *.log
-CMakeCache.txt
-Makefile
-cmake_install.cmake
-CMakeFiles/
 *.exe
+.vs/
+Debug/
+Release/

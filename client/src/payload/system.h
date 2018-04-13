@@ -7,11 +7,10 @@
 #include <windows.h>
 #include <Lmcons.h>
 #include <stdlib.h>
-#include "parson.h"
+#include "util/parson.h"
 #include "constants.h"
-#include "client_payload_type.h"
-#include "util.h"
-//#include "networking.h" // CIRCULAR INCLUDE
+#include "util/util.h"
+#include "payload.h"
 
 enum WindowsVersion {
 	WINDOWSVERSION_UNKNOWN,
@@ -31,7 +30,7 @@ struct SystemInfo {
 	char* system_guid;
 };
 
-extern int send_system_info();
+extern int send_system_info_payload();
 JSON_Value* serialize_system_info(const struct SystemInfo* const system_info);
 enum WindowsVersion get_windows_version();
 struct SystemInfo* get_system_info();
