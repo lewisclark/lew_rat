@@ -86,7 +86,7 @@ int on_client_connected(SOCKET* p_socket_client, struct sockaddr_in client_addr)
 			//recv_ret, bytes_recv, CLIENT_BUFFER_SIZE - bytes_recv);
 	}
 
-	enum ClientNetworkMessageType payload_type = (enum ClientNetworkMessageType)recv_buf[0];
+	enum ClientPayloadType payload_type = (enum ClientPayloadType)recv_buf[0];
 	handle_client_network_message(payload_type, &(recv_buf[sizeof(payload_type)]), client_addr);
 
 	closesocket(*p_socket_client);
@@ -97,7 +97,7 @@ int on_client_connected(SOCKET* p_socket_client, struct sockaddr_in client_addr)
 	return 0;
 }
 
-int handle_client_network_message(enum ClientNetworkMessageType payload_type, const char* const payload_json, struct sockaddr_in client_addr) {
+int handle_client_network_message(enum ClientPayloadType payload_type, const char* const payload_json, struct sockaddr_in client_addr) {
 	switch (payload_type) {
 	case CLIENTPAYLOADTYPE_SYSTEMINFO:
 	{

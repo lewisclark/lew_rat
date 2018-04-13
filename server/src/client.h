@@ -3,6 +3,7 @@
 
 #include <time.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "parson.h"
 #include "constants.h"
 #include "system.h"

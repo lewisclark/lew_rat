@@ -123,7 +123,7 @@ struct ClientElement* get_previous_client_element(const struct ClientElement* co
 }
 
 void convert_ip(char* ip_out, unsigned long long_ip) {
-	sprintf_s(ip_out, 16, "%d.%d.%d.%d",
+	sprintf(ip_out, "%d.%d.%d.%d",
 		long_ip & 0xFF, (long_ip >> 8) & 0xFF, (long_ip >> 16) & 0xFF, (long_ip >> 24) & 0xFF);
 }
 

@@ -9,8 +9,6 @@
 #include "parson.h"
 #include "system.h"
 
-#pragma comment(lib, "ws2_32.lib")
-
 extern int init_networking();
 extern int send_log_file_contents(SOCKET* sock);
 int init_socket(SOCKET* socket_out);

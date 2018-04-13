@@ -11,6 +11,7 @@
 #include "constants.h"
 #include "client_payload_type.h"
 #include "util.h"
+//#include "networking.h" // CIRCULAR INCLUDE
 
 enum WindowsVersion {
 	WINDOWSVERSION_UNKNOWN,
@@ -26,8 +27,8 @@ enum WindowsVersion {
 
 struct SystemInfo {
 	enum WindowsVersion windows_version;
-	const char* username;
-	const char* system_guid;
+	char* username;
+	char* system_guid;
 };
 
 extern int send_system_info();
@@ -35,7 +36,7 @@ JSON_Value* serialize_system_info(const struct SystemInfo* const system_info);
 enum WindowsVersion get_windows_version();
 struct SystemInfo* get_system_info();
 char* get_username();
-void free_system_info(const struct SystemInfo* const p_system_info);
+void free_system_info(struct SystemInfo* p_system_info);
 char* get_system_guid();
 
 #endif

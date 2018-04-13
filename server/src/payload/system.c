@@ -41,8 +41,8 @@ int deserialize_system_data(const char* const system_data, struct SystemInfo* co
 	p_system_info_out->username = malloc(UNLEN + 1);
 	p_system_info_out->system_guid = malloc(MAX_SYSTEM_GUID_LENGTH);
 
-	strcpy_s(p_system_info_out->username, UNLEN + 1, username);
-	strcpy_s(p_system_info_out->system_guid, MAX_SYSTEM_GUID_LENGTH, system_guid);
+	strcpy(p_system_info_out->username, username);
+	strcpy(p_system_info_out->system_guid, system_guid);
 
 	json_value_free(root_value);
 

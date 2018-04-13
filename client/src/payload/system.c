@@ -4,7 +4,7 @@ int send_system_info() {
 	struct SystemInfo* p_system_info = get_system_info();
 
 	if (send_payload(serialize_system_info(p_system_info), CLIENTPAYLOADTYPE_SYSTEMINFO));
-		return;
+		return 1;
 
 	free_system_info(p_system_info);
 
@@ -32,7 +32,7 @@ struct SystemInfo* get_system_info() {
 	return p_system_info;
 }
 
-void free_system_info(const struct SystemInfo* const p_system_info) {
+void free_system_info(struct SystemInfo* p_system_info) {
 	free(p_system_info->username);
 	free(p_system_info->system_guid);
 	free(p_system_info);
@@ -40,7 +40,7 @@ void free_system_info(const struct SystemInfo* const p_system_info) {
 
 // https://msdn.microsoft.com/en-us/library/ff563620(v=vs.85).aspx
 enum WindowsVersion get_windows_version() {
-	typedef (__stdcall* fn_get_version)(RTL_OSVERSIONINFOEXW*);
+	typedef int(__stdcall* fn_get_version)(RTL_OSVERSIONINFOEXW*);
 	fn_get_version get_version = (fn_get_version)GetProcAddress(GetModuleHandleA("ntdll.dll"), "RtlGetVersion");
 
 	RTL_OSVERSIONINFOEXW version_information;
@@ -88,12 +88,8 @@ char* get_system_guid() {
 
 	HW_PROFILE_INFOA info;
 
-	if (!GetCurrentHwProfileA(&info)) {
-		char* err = "?";
-		sprintf_s(err, 40, "Failed GetCurrentHwProfileA - %d", GetLastError());
-
-		return err;
-	}
+	if (!GetCurrentHwProfileA(&info))
+		return NULL;
 
 	memcpy(system_guid, info.szHwProfileGuid, strlen(info.szHwProfileGuid));
 

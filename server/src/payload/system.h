@@ -6,8 +6,9 @@
 #define MAX_SYSTEM_GUID_LENGTH 36 + 2 + 1 // GUID is 36 characters but {} is added to guid in get_system_guid. +1 null term
 
 #include <windows.h>
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <Lmcons.h>
 #include "parson.h"
 
@@ -26,8 +27,8 @@ extern const char* WindowsVersionNames[];
 
 struct SystemInfo {
 	enum WindowsVersion windows_version;
-	const char* username;
-	const char* system_guid;
+	char* username;
+	char* system_guid;
 };
 
 extern int process_system_data(const char* system_data, struct SystemInfo** pp_system_info_out);

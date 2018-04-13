@@ -1,11 +1,6 @@
 *.log
-*.user
-*.filters
-*.vcxproj
-*.sln
-src/client/.vs/
-src/client/Debug/
-src/client/Release/
-src/server/.vs/
-src/server/Debug/
-src/server/Release/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+CMakeFiles/
+*.exe
