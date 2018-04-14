@@ -10,7 +10,7 @@
 #include "constants.h"
 #include "payload/system.h"
 #include "client_payload_type.h"
-#include "client.h"
+#include "client/client.h"
 
 #pragma comment(lib, "ws2_32.lib")
 

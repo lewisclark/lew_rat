@@ -13,11 +13,11 @@
     <Filter Include="src\util">
       <UniqueIdentifier>{a276852a-abf7-4a8b-89e7-3725cb45a760}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\client">
+      <UniqueIdentifier>{45ed8f9e-3ef2-40fc-b005-610e764282b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\client.c">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\main.c">
       <Filter>src</Filter>
     </ClCompile>
@@ -30,11 +30,11 @@
     <ClCompile Include="src\networking\networking.c">
       <Filter>src\networking</Filter>
     </ClCompile>
+    <ClCompile Include="src\client\client.c">
+      <Filter>src\client</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\client.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\constants.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -49,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="src\networking\networking.h">
       <Filter>src\networking</Filter>
+    </ClInclude>
+    <ClInclude Include="src\client\client.h">
+      <Filter>src\client</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

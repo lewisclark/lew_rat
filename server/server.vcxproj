@@ -19,14 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\client.c" />
+    <ClCompile Include="src\client\client.c" />
     <ClCompile Include="src\main.c" />
     <ClCompile Include="src\networking\networking.c" />
     <ClCompile Include="src\payload\system.c" />
     <ClCompile Include="src\util\parson.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\client.h" />
+    <ClInclude Include="src\client\client.h" />
     <ClInclude Include="src\constants.h" />
     <ClInclude Include="src\networking\client_payload_type.h" />
     <ClInclude Include="src\networking\networking.h" />
