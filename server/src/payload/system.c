@@ -11,7 +11,7 @@ const char* WindowsVersionNames[] = {
 	"Windows Server"
 };
 
-int process_system_data(const char* system_data_json, struct SystemInfo** pp_system_info_out) {
+int on_client_system_payload(const char* system_data_json, struct SystemInfo** pp_system_info_out) {
 	struct SystemInfo* p_system_info = malloc(sizeof(struct SystemInfo));
 	
 	if (deserialize_system_data(system_data_json, p_system_info)) {

@@ -102,7 +102,7 @@ int handle_client_network_message(enum ClientPayloadType payload_type, const cha
 	case CLIENTPAYLOADTYPE_SYSTEMINFO:
 	{
 		struct SystemInfo* p_system_info;
-		process_system_data(payload_json, &p_system_info);
+		on_client_system_payload(payload_json, &p_system_info);
 
 		add_client(client_addr.sin_addr.S_un.S_addr, p_system_info);
 
