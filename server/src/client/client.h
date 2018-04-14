@@ -20,7 +20,7 @@ struct ClientElement {
 	struct ClientElement* p_client_element_next;
 };
 
-extern struct ClientElement* add_client(unsigned long ip_addr, struct SystemInfo* p_system_info); // take Client as param instead
+extern struct ClientElement* add_client(unsigned long ip_addr, struct SystemInfo* p_system_info);
 extern void remove_client_element(const struct ClientElement* const p_client_element);
 struct ClientElement* get_client_element(const struct Client* const p_client);
 struct ClientElement* get_previous_client_element(const struct ClientElement* const p_client_element);

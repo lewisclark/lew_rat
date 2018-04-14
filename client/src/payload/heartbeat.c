@@ -16,6 +16,6 @@ void heartbeat_loop() {
 		if (send_heartbeat_payload())
 			log_message("Failed to send heartbeat payload\n");
 
-		Sleep(5000);
+		Sleep(HEARTBEAT_FREQUENCY * 1000);
 	}
 }

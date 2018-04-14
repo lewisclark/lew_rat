@@ -128,7 +128,7 @@ void print_clients() {
 }
 
 int has_timed_out(struct Client* p_client) {
-	return (time(NULL) - p_client->last_heartbeat) > 10 ? 1 : 0;
+	return (time(NULL) - p_client->last_heartbeat) > CLIENT_TIMEOUT_TIME ? 1 : 0;
 }
 
 void update_client_heartbeat(struct Client* p_client) {
