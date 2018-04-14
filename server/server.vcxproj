@@ -24,6 +24,7 @@
     <ClCompile Include="src\networking\networking.c" />
     <ClCompile Include="src\payload\system.c" />
     <ClCompile Include="src\util\parson.c" />
+    <ClCompile Include="src\util\util.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\client\client.h" />
@@ -32,6 +33,7 @@
     <ClInclude Include="src\networking\networking.h" />
     <ClInclude Include="src\payload\system.h" />
     <ClInclude Include="src\util\parson.h" />
+    <ClInclude Include="src\util\util.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

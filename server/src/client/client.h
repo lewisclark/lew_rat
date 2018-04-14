@@ -7,6 +7,7 @@
 #include "util/parson.h"
 #include "constants.h"
 #include "payload/system.h"
+#include "util/util.h"
 
 struct Client {
 	time_t last_heartbeat;
@@ -27,9 +28,8 @@ struct ClientElement* get_previous_client_element(const struct ClientElement* co
 extern void client_loop(); // Check clients for timeout, etc.
 extern struct Client* get_client(const char* const client_system_guid);
 extern void convert_ip(char* ip_out, unsigned long long_ip);
-extern void handle_heartbeat_payload(const char* const payload_json);
 extern void print_clients();
 int has_timed_out(struct Client* p_client);
-void on_client_heartbeat(const char* const client_system_guid);
+extern void on_client_heartbeat(const char* const payload_json);
 
 #endif

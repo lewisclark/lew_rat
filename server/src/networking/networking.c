@@ -109,7 +109,7 @@ int handle_client_network_message(enum ClientPayloadType payload_type, const cha
 		break;
 	}
 	case CLIENTPAYLOADTYPE_HEARTBEAT:
-		handle_heartbeat_payload(payload_json);
+		on_client_heartbeat(payload_json);
 
 		break;
 	default:
@@ -118,7 +118,7 @@ int handle_client_network_message(enum ClientPayloadType payload_type, const cha
 		break;
 	}
 
-	//printf("%s\n", payload_json);
+	printf("\n\n%s\n\n", payload_json);
 
 	return 0;
 }

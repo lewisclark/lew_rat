@@ -33,6 +33,9 @@
     <ClCompile Include="src\client\client.c">
       <Filter>src\client</Filter>
     </ClCompile>
+    <ClCompile Include="src\util\util.c">
+      <Filter>src\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\constants.h">
@@ -52,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="src\client\client.h">
       <Filter>src\client</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\util.h">
+      <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
