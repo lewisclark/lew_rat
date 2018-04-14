@@ -131,17 +131,6 @@ int has_timed_out(struct Client* p_client) {
 	return (time(NULL) - p_client->last_heartbeat) > 10 ? 1 : 0;
 }
 
-void on_client_heartbeat(const char* const payload_json) {
-	char client_system_guid[MAX_SYSTEM_GUID_LENGTH];
-	get_system_guid(client_system_guid, payload_json);
-
-	struct Client* p_client = get_client(client_system_guid);
-
-	if (p_client == NULL) {
-		printf("Receieved heartbeat from non-existent client (%s)\n", client_system_guid);
-
-		return;
-	}
-
+void update_client_heartbeat(struct Client* p_client) {
 	p_client->last_heartbeat = time(NULL);
 }

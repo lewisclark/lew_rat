@@ -36,6 +36,9 @@
     <ClCompile Include="src\util\util.c">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="src\payload\heartbeat.c">
+      <Filter>src\payload</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\constants.h">
@@ -58,6 +61,9 @@
     </ClInclude>
     <ClInclude Include="src\util\util.h">
       <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\payload\heartbeat.h">
+      <Filter>src\payload</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

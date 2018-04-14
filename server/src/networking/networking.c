@@ -109,7 +109,7 @@ int handle_client_network_message(enum ClientPayloadType payload_type, const cha
 		break;
 	}
 	case CLIENTPAYLOADTYPE_HEARTBEAT:
-		on_client_heartbeat(payload_json);
+		on_client_heartbeat_payload(payload_json);
 
 		break;
 	default:

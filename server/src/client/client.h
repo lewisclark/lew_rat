@@ -29,7 +29,7 @@ extern void client_loop(); // Check clients for timeout, etc.
 extern struct Client* get_client(const char* const client_system_guid);
 extern void convert_ip(char* ip_out, unsigned long long_ip);
 extern void print_clients();
+extern void update_client_heartbeat(struct Client* p_client);
 int has_timed_out(struct Client* p_client);
-extern void on_client_heartbeat(const char* const payload_json);
 
 #endif

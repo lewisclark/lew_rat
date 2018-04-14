@@ -3,14 +3,14 @@
 
 #define WIN32_LEAN_AND_MEAN
 
-#define MAX_SYSTEM_GUID_LENGTH 36 + 2 + 1 // GUID is 36 characters but {} is added to guid in get_system_guid. +1 null term
-
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <Lmcons.h>
+
 #include "util/parson.h"
+#include "constants.h"
 
 enum WindowsVersion {
 	WINDOWSVERSION_UNKNOWN,
