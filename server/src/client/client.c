@@ -3,7 +3,8 @@
 struct ClientElement* p_client_element_head = NULL;
 
 struct ClientElement* add_client(unsigned long ip_addr, struct SystemInfo* p_system_info) {
-	// Check if this client already exists here
+	if (get_client(p_system_info->system_guid) != NULL)
+		return get_client_element(get_client(p_system_info->system_guid));
 
 	struct Client* p_client = malloc(sizeof(struct Client));
 
