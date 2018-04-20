@@ -8,6 +8,7 @@
 #include "constants.h"
 #include "payload/system.h"
 #include "util/util.h"
+#include "payload/server_payload.h"
 
 struct Client {
 	time_t last_heartbeat;
