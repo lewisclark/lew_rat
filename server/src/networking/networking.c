@@ -38,7 +38,7 @@ int init_listen_socket(SOCKET* socket_out) {
 	struct sockaddr_in server;
 	server.sin_family = AF_INET;
 	server.sin_addr.S_un.S_addr = INADDR_ANY;
-	server.sin_port = htons(SERVER_PORT);
+	server.sin_port = htons(NET_PORT);
 
 	if (bind(sock, (struct sockaddr*)&server, sizeof(server)) == SOCKET_ERROR) {
 		WSACleanup();
@@ -71,7 +71,7 @@ int init_client_socket(const char* client_address, SOCKET* socket_out) {
 	struct sockaddr_in sockaddr_client;
 	inet_pton(AF_INET, client_address, &sockaddr_client.sin_addr);
 	sockaddr_client.sin_family = AF_INET;
-	sockaddr_client.sin_port = htons(SERVER_PORT);
+	sockaddr_client.sin_port = htons(NET_PORT);
 
 	if (connect(sock, (struct sockaddr*)&sockaddr_client, sizeof(sockaddr_client)) == SOCKET_ERROR) {
 		printf("Failed to connect to client socket\n");

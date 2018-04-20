@@ -1,7 +1,7 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-#define SERVER_PORT 16778
+#define NET_PORT 16778
 #define NET_BUFFER_SIZE 100000
 #define MAX_NUM_CLIENTS 100
 

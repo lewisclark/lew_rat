@@ -37,7 +37,7 @@ int init_socket(SOCKET* socket_out) {
 	struct sockaddr_in server; // Every piece of data in this struct must be stored network byte order
 	inet_pton(AF_INET, SERVER_ADDRESS, &server.sin_addr);
 	server.sin_family = AF_INET; // IPV4
-	server.sin_port = htons(SERVER_PORT); // Make network byte order
+	server.sin_port = htons(NET_PORT); // Make network byte order
 
 	if (connect(sock, (struct sockaddr*)&server, sizeof(server)) == SOCKET_ERROR) {
 		log_message("init_socket - Failed to connect to server\n");
@@ -62,7 +62,7 @@ int init_listen_socket(SOCKET* socket_out) {
 	struct sockaddr_in sockaddr;
 	sockaddr.sin_family = AF_INET;
 	sockaddr.sin_addr.S_un.S_addr = INADDR_ANY;
-	sockaddr.sin_port = htons(SERVER_PORT);
+	sockaddr.sin_port = htons(NET_PORT);
 
 	if (bind(sock, (struct sockaddr*)&sockaddr, sizeof(sockaddr)) == SOCKET_ERROR) {
 		closesocket(sock);
