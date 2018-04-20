@@ -1,4 +1,4 @@
-#include "payload.h"
+#include "server_payload.h"
 
 int send_payload(const char* client_address, struct ServerPayload payload) {
 	SOCKET client_sock;

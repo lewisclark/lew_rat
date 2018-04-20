@@ -1,4 +1,4 @@
-#include "payload.h"
+#include "client_payload.h"
 
 int send_payload(struct ClientPayload payload) {
 	SOCKET sock;

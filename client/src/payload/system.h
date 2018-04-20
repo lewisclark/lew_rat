@@ -10,7 +10,7 @@
 #include "util/parson.h"
 #include "constants.h"
 #include "util/util.h"
-#include "payload.h"
+#include "client_payload.h"
 
 enum WindowsVersion {
 	WINDOWSVERSION_UNKNOWN,

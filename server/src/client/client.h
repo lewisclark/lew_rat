@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include "util/parson.h"
 #include "constants.h"
-#include "client_payload/system.h"
+#include "payload/system.h"
 #include "util/util.h"
 
 struct Client {
