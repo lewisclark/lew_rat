@@ -9,14 +9,14 @@ int send_payload(struct ClientPayload payload) {
 
 	char* json_payload = json_serialize_to_string(payload.json_value_payload);
 
-	char* buf = malloc(CLIENT_BUFFER_SIZE);
-	memset(buf, 0, CLIENT_BUFFER_SIZE);
+	char* buf = malloc(NET_BUFFER_SIZE);
+	memset(buf, 0, NET_BUFFER_SIZE);
 	memcpy(buf, &payload.client_payload_type, sizeof(payload.client_payload_type));
 	memcpy(&(buf[4]), json_payload, strlen(json_payload));
 
 	int bytes_sent = 0;
-	while (bytes_sent < CLIENT_BUFFER_SIZE) {
-		int send_ret = send(sock, buf, CLIENT_BUFFER_SIZE, 0);
+	while (bytes_sent < NET_BUFFER_SIZE) {
+		int send_ret = send(sock, buf, NET_BUFFER_SIZE, 0);
 
 		if (send_ret == SOCKET_ERROR) {
 			log_message("Failed to send payload\n");

@@ -88,14 +88,14 @@ int init_client_socket(const char* client_address, SOCKET* socket_out) {
 int on_client_connected(SOCKET* p_socket_client, struct sockaddr_in client_addr) {
 	//printf("Connection from client %d\n", client_addr.sin_addr.S_un.S_addr);
 
-	char* recv_buf = malloc(CLIENT_BUFFER_SIZE);
-	memset(recv_buf, 0, CLIENT_BUFFER_SIZE);
+	char* recv_buf = malloc(NET_BUFFER_SIZE);
+	memset(recv_buf, 0, NET_BUFFER_SIZE);
 
 	int bytes_recv = 0;
 	int recv_ret;
 
-	while ((recv_ret = recv(*p_socket_client, &(recv_buf[bytes_recv]), CLIENT_BUFFER_SIZE - bytes_recv, 0)) != 0) {
-		if (bytes_recv >= CLIENT_BUFFER_SIZE)
+	while ((recv_ret = recv(*p_socket_client, &(recv_buf[bytes_recv]), NET_BUFFER_SIZE - bytes_recv, 0)) != 0) {
+		if (bytes_recv >= NET_BUFFER_SIZE)
 			break;
 
 		if (recv_ret == SOCKET_ERROR) {
@@ -108,7 +108,7 @@ int on_client_connected(SOCKET* p_socket_client, struct sockaddr_in client_addr)
 		bytes_recv += recv_ret;
 
 		//printf("\nReceived part of %d bytes. We have received %d in total, we need %d bytes more.\n",
-			//recv_ret, bytes_recv, CLIENT_BUFFER_SIZE - bytes_recv);
+			//recv_ret, bytes_recv, NET_BUFFER_SIZE - bytes_recv);
 	}
 
 	enum ClientPayloadType payload_type = (enum ClientPayloadType)recv_buf[0];

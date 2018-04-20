@@ -2,7 +2,7 @@
 #define CONSTANTS_H
 
 #define SERVER_PORT 16778
-#define CLIENT_BUFFER_SIZE 100000
+#define NET_BUFFER_SIZE 100000
 #define MAX_NUM_CLIENTS 100
 
 #define CLIENT_TIMEOUT_TIME 10 // Time (in seconds) before a client is marked as timed out if not sending heartbeats
