@@ -1,6 +1,6 @@
 #include "payload.h"
 
-int send_payload(struct Payload payload) {
+int send_payload(struct ClientPayload payload) {
 	SOCKET sock;
 	if (init_socket(&sock))
 		return 1;
@@ -20,9 +20,8 @@ int send_payload(struct Payload payload) {
 
 		if (send_ret == SOCKET_ERROR) {
 			log_message("Failed to send payload\n");
-			free(buf);
 
-			return 1;
+			break;
 		}
 
 		bytes_sent += send_ret;

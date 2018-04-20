@@ -12,8 +12,8 @@
 #include "payload_type.h"
 #include "client/client.h"
 
-#include "payload/system.h"
-#include "payload/heartbeat.h"
+#include "client_payload/system.h"
+#include "client_payload/heartbeat.h"
 
 #pragma comment(lib, "ws2_32.lib")
 
