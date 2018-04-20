@@ -2,7 +2,7 @@
 
 int init_networking() {
 	SOCKET sock;
-	if (init_socket(&sock) != 0) {
+	if (init_listen_socket(&sock) != 0) {
 		printf("Failed to set up/bind socket, aborting...\n");
 
 		return 1;
@@ -19,7 +19,7 @@ int init_networking() {
 	return 0;
 }
 
-int init_socket(SOCKET* socket_out) {
+int init_listen_socket(SOCKET* socket_out) {
 	WSADATA wsa;
 
 	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0) {
