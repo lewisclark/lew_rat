@@ -1,6 +1,13 @@
 #include "networking.h"
 
 int init_networking() {
+	WSADATA wsa;
+	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0) {
+		WSACleanup();
+
+		return 1;
+	}
+	
 	SOCKET sock;
 	if (init_listen_socket(&sock) != 0) {
 		printf("Failed to set up/bind socket, aborting...\n");
@@ -20,14 +27,6 @@ int init_networking() {
 }
 
 int init_listen_socket(SOCKET* socket_out) {
-	WSADATA wsa;
-
-	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0) {
-		WSACleanup();
-
-		return 1;
-	}
-
 	SOCKET sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (sock == INVALID_SOCKET) {
 		WSACleanup();
@@ -53,6 +52,32 @@ int init_listen_socket(SOCKET* socket_out) {
 		closesocket(sock);
 
 		return 4;
+	}
+
+	*socket_out = sock;
+
+	return 0;
+}
+
+int init_client_socket(const char* client_address, SOCKET* socket_out) {
+	SOCKET sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+	if (sock == INVALID_SOCKET) {
+		printf("Failed to create socket for client\n");
+		closesocket(sock);
+
+		return 1;
+	}
+
+	struct sockaddr_in sockaddr_client;
+	inet_pton(AF_INET, client_address, &sockaddr_client.sin_addr);
+	sockaddr_client.sin_family = AF_INET;
+	sockaddr_client.sin_port = htons(SERVER_PORT);
+
+	if (connect(sock, (struct sockaddr*)&sockaddr_client, sizeof(sockaddr_client)) == SOCKET_ERROR) {
+		printf("Failed to connect to client socket\n");
+		closesocket(sock);
+
+		return 1;
 	}
 
 	*socket_out = sock;
