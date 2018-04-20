@@ -9,7 +9,7 @@
 #include <ws2tcpip.h>
 
 #include "constants.h"
-#include "client_payload_type.h"
+#include "payload_type.h"
 #include "client/client.h"
 
 #include "payload/system.h"

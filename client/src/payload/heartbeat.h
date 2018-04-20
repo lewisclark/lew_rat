@@ -3,7 +3,7 @@
 
 #include "util/parson.h"
 #include "payload.h"
-#include "networking/client_payload_type.h"
+#include "networking/payload_type.h"
 #include "util/util.h"
 #include <windows.h>
 
