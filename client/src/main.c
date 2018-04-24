@@ -4,7 +4,7 @@
 #include <windows.h>
 #include "payload/payloads/heartbeat.h"
 
-int main(int argc, char* argv[]) {
+int main() {
 	init_networking();
 
 	CreateThread(0, 0, (LPTHREAD_START_ROUTINE)listen_on_socket, 0, 0, 0);

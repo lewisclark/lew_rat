@@ -7,12 +7,11 @@ int send_system_info_payload() {
 	payload.payload_type = CLIENTPAYLOADTYPE_SYSTEMINFO;
 	payload.json_value_payload = serialize_system_info(p_system_info);
 
-	if (send_payload(payload));
-		return 1;
+	int ret = send_payload(payload);
 
 	free_system_info(p_system_info);
 
-	return 0;
+	return ret;
 }
 
 int on_system_payload_requested(struct ServerPayloadIn payload_in) {

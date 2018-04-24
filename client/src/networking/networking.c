@@ -27,7 +27,7 @@ void listen_on_socket() {
 		SOCKET socket_server = accept(sock, (struct sockaddr*)&sockaddr_server, &addrlen); // TODO: only allow SERVER_ADDRESS to connect to this socket
 
 		if (socket_server != INVALID_SOCKET)
-			on_connected_listen_socket(&socket_server, sockaddr_server);
+			on_connected_listen_socket(&socket_server);
 	}
 }
 
@@ -87,7 +87,7 @@ int init_listen_socket(SOCKET* socket_out) {
 	return 0;
 }
 
-int on_connected_listen_socket(SOCKET* p_socket_server, struct sockaddr_in sockaddr_server) {
+int on_connected_listen_socket(SOCKET* p_socket_server) {
 	char* recv_buf = malloc(NET_BUFFER_SIZE);
 	memset(recv_buf, 0, NET_BUFFER_SIZE);
 
