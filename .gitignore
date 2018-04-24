@@ -3,3 +3,7 @@
 .vs/
 Debug/
 Release/
+*.vcxproj
+*.sln
+*.filters
+*.user
