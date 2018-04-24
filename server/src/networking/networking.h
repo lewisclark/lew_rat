@@ -9,11 +9,11 @@
 #include <ws2tcpip.h>
 
 #include "constants.h"
-#include "payload_type.h"
+#include "payload/payload_type.h"
 #include "client/client.h"
 
-#include "payload/system.h"
-#include "payload/heartbeat.h"
+#include "payload/payloads/system.h"
+#include "payload/payloads/heartbeat.h"
 
 #pragma comment(lib, "ws2_32.lib")
 

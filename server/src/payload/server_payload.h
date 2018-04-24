@@ -3,7 +3,7 @@
 
 #include "util/parson.h"
 #include "networking/networking.h"
-#include "networking/payload_type.h"
+#include "payload/payload_type.h"
 
 struct ServerPayload {
 	enum ServerPayloadType server_payload_type;
