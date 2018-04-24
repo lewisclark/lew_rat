@@ -141,6 +141,7 @@ int on_client_connected(SOCKET* p_socket_client, struct sockaddr_in client_addr)
 	struct ClientPayloadIn payload_in;
 	payload_in.payload_type = payload_type;
 	payload_in.payload_json = payload_json;
+	payload_in.ip_addr = client_addr.sin_addr.S_un.S_addr;
 
 	callback(payload_in);
 

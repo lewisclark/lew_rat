@@ -6,6 +6,7 @@
 struct ClientPayloadIn {
 	enum ClientPayloadType payload_type;
 	const char* payload_json;
+	unsigned long ip_addr;
 };
 
 typedef int(__cdecl* ClientPayloadInCallback)(struct ClientPayloadIn payload_in);
