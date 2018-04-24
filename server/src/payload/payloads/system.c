@@ -11,26 +11,22 @@ const char* WindowsVersionNames[] = {
 	"Windows Server"
 };
 
-int on_client_system_payload(const char* system_data_json, struct SystemInfo** pp_system_info_out) {
+int on_system_payload_received(struct ClientPayloadIn payload_in) {
 	struct SystemInfo* p_system_info = malloc(sizeof(struct SystemInfo));
-	
-	if (deserialize_system_data(system_data_json, p_system_info)) {
-		printf("Failed to deserialize system data");
+
+	if (deserialize_system_data(payload_in.payload_json, p_system_info)) {
+		printf("Failed to deserialize system json payload");
 
 		return 1;
 	}
 
-	*pp_system_info_out = p_system_info;
+	add_client(payload_in.ip_addr, p_system_info);
 
 	return 0;
 }
 
-int on_system_payload_received(struct ClientPayloadIn payload_in) {
-	return 0;
-}
-
-int deserialize_system_data(const char* const system_data, struct SystemInfo* const p_system_info_out) {
-	JSON_Value* root_value = json_parse_string(system_data);
+int deserialize_system_data(const char* payload_json, struct SystemInfo* const p_system_info_out) {
+	JSON_Value* root_value = json_parse_string(payload_json);
 
 	if (json_value_get_type(root_value) != JSONObject)
 		return 1;
