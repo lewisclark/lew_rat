@@ -15,6 +15,10 @@ int send_system_info_payload() {
 	return 0;
 }
 
+int on_system_payload_requested(struct ServerPayloadIn payload_in) {
+	return 0;
+}
+
 JSON_Value* serialize_system_info(const struct SystemInfo* const p_system_info) {
 	JSON_Value* root_value = json_value_init_object();
 	JSON_Object* root_object = json_value_get_object(root_value);

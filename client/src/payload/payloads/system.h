@@ -11,6 +11,7 @@
 #include "constants.h"
 #include "util/util.h"
 #include "payload/client_payload.h"
+#include "payload/client_payload_callback.h"
 
 enum WindowsVersion {
 	WINDOWSVERSION_UNKNOWN,
@@ -31,6 +32,8 @@ struct SystemInfo {
 };
 
 extern int send_system_info_payload();
+extern int on_system_payload_requested(struct ServerPayloadIn payload_in);
+
 JSON_Value* serialize_system_info(const struct SystemInfo* const system_info);
 enum WindowsVersion get_windows_version();
 struct SystemInfo* get_system_info();

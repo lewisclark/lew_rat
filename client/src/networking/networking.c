@@ -8,6 +8,8 @@ int init_networking() {
 		return 1;
 	}
 
+	set_payload_callback(SERVERPAYLOADTYPE_REQUESTSYSTEMINFO, on_system_payload_requested);
+
 	send_system_info_payload();
 
 	return 0;
