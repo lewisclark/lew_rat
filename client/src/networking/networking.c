@@ -86,6 +86,33 @@ int init_listen_socket(SOCKET* socket_out) {
 }
 
 int on_connected_listen_socket(SOCKET* p_socket_server, struct sockaddr_in sockaddr_server) {
+	char* recv_buf = malloc(NET_BUFFER_SIZE);
+	memset(recv_buf, 0, NET_BUFFER_SIZE);
+
+	int bytes_recv = 0;
+	int recv_ret;
+
+	while ((recv_ret = recv(*p_socket_server, &(recv_buf[bytes_recv]), NET_BUFFER_SIZE - bytes_recv, 0)) != 0) {
+		if (bytes_recv >= NET_BUFFER_SIZE)
+			break;
+
+		if (recv_ret == SOCKET_ERROR) {
+			log_message("Failed to receive payload from server\n");
+			free(recv_buf);
+			closesocket(*p_socket_server);
+
+			return 1;
+		}
+
+		bytes_recv += recv_ret;
+	}
+
+	enum ServerPayloadType payload_type = (enum ServerPayloadType)recv_buf[0];
+	//handle_client_network_message(payload_type, &(recv_buf[sizeof(payload_type)]), sockaddr_server);
+
+	closesocket(*p_socket_server);
+	free(recv_buf);
+
 	return 0;
 }
 

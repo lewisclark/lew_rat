@@ -103,6 +103,7 @@ int on_client_connected(SOCKET* p_socket_client, struct sockaddr_in client_addr)
 		if (recv_ret == SOCKET_ERROR) {
 			printf("Failed to receive payload - %d\n", WSAGetLastError());
 			free(recv_buf);
+			closesocket(*p_socket_client);
 
 			return 1;
 		}
