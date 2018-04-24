@@ -5,12 +5,12 @@
 #include "networking/networking.h"
 #include "payload/payload_type.h"
 
-struct ClientPayload {
-	enum ClientPayloadType client_payload_type;
+struct ClientPayloadOut {
+	enum ClientPayloadOutType payload_type;
 	JSON_Value* json_value_payload;
 };
 
-extern int send_payload(struct ClientPayload payload);
+extern int send_payload(struct ClientPayloadOut payload);
 void attach_system_guid(JSON_Value* json_value_payload);
 
 #endif

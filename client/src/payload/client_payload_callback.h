@@ -4,13 +4,13 @@
 #include "payload/payload_type.h"
 
 struct ServerPayloadIn {
-	enum ServerPayloadType payload_type;
+	enum ServerPayloadInType payload_type;
 	const char* payload_json;
 };
 
 typedef int(__cdecl* ServerPayloadInCallback)(struct ServerPayloadIn payload_in);
 
-extern int set_payload_callback(enum ServerPayloadType payload_type, ServerPayloadInCallback callback);
-extern ServerPayloadInCallback get_payload_callback(enum ServerPayloadType payload_type);
+extern int set_payload_callback(enum ServerPayloadInType payload_type, ServerPayloadInCallback callback);
+extern ServerPayloadInCallback get_payload_callback(enum ServerPayloadInType payload_type);
 
 #endif

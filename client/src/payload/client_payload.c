@@ -1,6 +1,6 @@
 #include "client_payload.h"
 
-int send_payload(struct ClientPayload payload) {
+int send_payload(struct ClientPayloadOut payload) {
 	SOCKET sock;
 	if (init_socket(&sock))
 		return 1;
@@ -11,7 +11,7 @@ int send_payload(struct ClientPayload payload) {
 
 	char* buf = malloc(NET_BUFFER_SIZE);
 	memset(buf, 0, NET_BUFFER_SIZE);
-	memcpy(buf, &payload.client_payload_type, sizeof(payload.client_payload_type));
+	memcpy(buf, &payload.payload_type, sizeof(payload.payload_type));
 	memcpy(&(buf[4]), json_payload, strlen(json_payload));
 
 	int bytes_sent = 0;

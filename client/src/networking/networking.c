@@ -109,7 +109,7 @@ int on_connected_listen_socket(SOCKET* p_socket_server, struct sockaddr_in socka
 		bytes_recv += recv_ret;
 	}
 
-	enum ServerPayloadType payload_type = (enum ServerPayloadType)recv_buf[0];
+	enum ServerPayloadInType payload_type = (enum ServerPayloadInType)recv_buf[0];
 	//handle_client_network_message(payload_type, &(recv_buf[sizeof(payload_type)]), sockaddr_server);
 
 	closesocket(*p_socket_server);

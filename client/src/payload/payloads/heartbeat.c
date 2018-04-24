@@ -1,8 +1,8 @@
 #include "heartbeat.h"
 
 int send_heartbeat_payload() {
-	struct ClientPayload payload;
-	payload.client_payload_type = CLIENTPAYLOADTYPE_HEARTBEAT;
+	struct ClientPayloadOut payload;
+	payload.payload_type = CLIENTPAYLOADTYPE_HEARTBEAT;
 	payload.json_value_payload = json_value_init_object();
 
 	if (send_payload(payload))
