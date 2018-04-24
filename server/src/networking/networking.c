@@ -15,6 +15,25 @@ int init_networking() {
 		return 1;
 	}
 
+	/*
+		case CLIENTPAYLOADTYPE_SYSTEMINFO:
+	{
+		struct SystemInfo* p_system_info;
+		on_client_system_payload(payload_json, &p_system_info);
+
+		add_client(client_addr.sin_addr.S_un.S_addr, p_system_info);
+
+		break;
+	}
+	case CLIENTPAYLOADTYPE_HEARTBEAT:
+		on_client_heartbeat_payload(payload_json);
+
+		break;
+	*/
+
+	set_payload_callback(CLIENTPAYLOADTYPE_SYSTEMINFO, on_system_payload_received);
+	set_payload_callback(CLIENTPAYLOADTYPE_HEARTBEAT, on_heartbeat_payload_received);
+
 	struct sockaddr_in sockaddr_client;
 	int addrlen = sizeof(struct sockaddr_in);
 
@@ -115,38 +134,18 @@ int on_client_connected(SOCKET* p_socket_client, struct sockaddr_in client_addr)
 	}
 
 	enum ClientPayloadType payload_type = (enum ClientPayloadType)recv_buf[0];
-	handle_client_network_message(payload_type, &(recv_buf[sizeof(payload_type)]), client_addr);
+	const char* payload_json = &(recv_buf[sizeof(payload_type)]);
+
+	ClientPayloadInCallback callback = get_payload_callback(payload_type);
+
+	struct ClientPayloadIn payload_in;
+	payload_in.payload_type = payload_type;
+	payload_in.payload_json = payload_json;
+
+	callback(payload_in);
 
 	closesocket(*p_socket_client);
 	free(recv_buf);
-
-	//printf("Disconnected client %d\n", *p_socket_client);
-
-	return 0;
-}
-
-int handle_client_network_message(enum ClientPayloadType payload_type, const char* const payload_json, struct sockaddr_in client_addr) {
-	switch (payload_type) {
-	case CLIENTPAYLOADTYPE_SYSTEMINFO:
-	{
-		struct SystemInfo* p_system_info;
-		on_client_system_payload(payload_json, &p_system_info);
-
-		add_client(client_addr.sin_addr.S_un.S_addr, p_system_info);
-
-		break;
-	}
-	case CLIENTPAYLOADTYPE_HEARTBEAT:
-		on_client_heartbeat_payload(payload_json);
-
-		break;
-	default:
-		printf("Unhandled client payload type: %d\n", payload_type);
-
-		break;
-	}
-
-	printf("\n\n%s\n\n", payload_json);
 
 	return 0;
 }

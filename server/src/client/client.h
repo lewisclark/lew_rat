@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include "util/parson.h"
 #include "constants.h"
-#include "payload/payloads/system.h"
+#include "client/system_info.h"
 #include "util/util.h"
 #include "payload/server_payload.h"
 

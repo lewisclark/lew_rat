@@ -11,27 +11,14 @@
 
 #include "util/parson.h"
 #include "constants.h"
-
-enum WindowsVersion {
-	WINDOWSVERSION_UNKNOWN,
-	WINDOWSVERSION_2000,
-	WINDOWSVERSION_XP,
-	WINDOWSVERSION_VISTA,
-	WINDOWSVERSION_7,
-	WINDOWSVERSION_8,
-	WINDOWSVERSION_10,
-	WINDOWSVERSION_SERVER
-};
+#include "client/system_info.h"
+#include "payload/server_payload_callback.h"
+#include "client/client.h"
 
 extern const char* WindowsVersionNames[];
 
-struct SystemInfo {
-	enum WindowsVersion windows_version;
-	char* username;
-	char* system_guid;
-};
-
 extern int on_client_system_payload(const char* system_data, struct SystemInfo** pp_system_info_out);
+extern int on_system_payload_received(struct ClientPayloadIn payload_in);
 int deserialize_system_data(const char* const system_data, struct SystemInfo* const p_system_info_out);
 extern void free_system_info(struct SystemInfo* p_system_info);
 

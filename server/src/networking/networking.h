@@ -12,6 +12,7 @@
 #include "payload/payload_type.h"
 #include "client/client.h"
 
+#include "payload/server_payload_callback.h"
 #include "payload/payloads/system.h"
 #include "payload/payloads/heartbeat.h"
 
@@ -20,7 +21,6 @@
 extern int init_networking();
 extern int init_listen_socket(SOCKET* socket_out);
 extern int on_client_connected(SOCKET* socket_client, struct sockaddr_in client_addr);
-extern int handle_client_network_message(enum ClientPayloadType message_type, const char* const payload_json, struct sockaddr_in client_addr);
 
 extern int init_client_socket(const char* client_address, SOCKET* socket_out);
 

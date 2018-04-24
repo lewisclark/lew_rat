@@ -25,6 +25,10 @@ int on_client_system_payload(const char* system_data_json, struct SystemInfo** p
 	return 0;
 }
 
+int on_system_payload_received(struct ClientPayloadIn payload_in) {
+	return 0;
+}
+
 int deserialize_system_data(const char* const system_data, struct SystemInfo* const p_system_info_out) {
 	JSON_Value* root_value = json_parse_string(system_data);
 
