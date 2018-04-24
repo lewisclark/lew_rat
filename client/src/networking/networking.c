@@ -110,7 +110,15 @@ int on_connected_listen_socket(SOCKET* p_socket_server, struct sockaddr_in socka
 	}
 
 	enum ServerPayloadInType payload_type = (enum ServerPayloadInType)recv_buf[0];
-	//handle_client_network_message(payload_type, &(recv_buf[sizeof(payload_type)]), sockaddr_server);
+	const char* payload_json = &(recv_buf[sizeof(payload_type)]);
+
+	ServerPayloadInCallback callback = get_payload_callback(payload_type);
+
+	struct ServerPayloadIn payload_in;
+	payload_in.payload_type = payload_type;
+	payload_in.payload_json = payload_json;
+
+	callback(payload_in);
 
 	closesocket(*p_socket_server);
 	free(recv_buf);
