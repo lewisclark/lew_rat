@@ -15,22 +15,6 @@ int init_networking() {
 		return 1;
 	}
 
-	/*
-		case CLIENTPAYLOADTYPE_SYSTEMINFO:
-	{
-		struct SystemInfo* p_system_info;
-		on_client_system_payload(payload_json, &p_system_info);
-
-		add_client(client_addr.sin_addr.S_un.S_addr, p_system_info);
-
-		break;
-	}
-	case CLIENTPAYLOADTYPE_HEARTBEAT:
-		on_client_heartbeat_payload(payload_json);
-
-		break;
-	*/
-
 	set_payload_callback(CLIENTPAYLOADTYPE_SYSTEMINFO, on_system_payload_received);
 	set_payload_callback(CLIENTPAYLOADTYPE_HEARTBEAT, on_heartbeat_payload_received);
 
@@ -133,7 +117,7 @@ int on_client_connected(SOCKET* p_socket_client, struct sockaddr_in client_addr)
 			//recv_ret, bytes_recv, NET_BUFFER_SIZE - bytes_recv);
 	}
 
-	enum ClientPayloadType payload_type = (enum ClientPayloadType)recv_buf[0];
+	enum ClientPayloadInType payload_type = (enum ClientPayloadInType)recv_buf[0];
 	const char* payload_json = &(recv_buf[sizeof(payload_type)]);
 
 	ClientPayloadInCallback callback = get_payload_callback(payload_type);
