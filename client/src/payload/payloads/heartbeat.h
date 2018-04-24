@@ -2,8 +2,8 @@
 #define HEARTBEAT_H
 
 #include "util/parson.h"
-#include "client_payload.h"
-#include "networking/payload_type.h"
+#include "payload/client_payload.h"
+#include "payload/payload_type.h"
 #include "util/util.h"
 #include <windows.h>
 

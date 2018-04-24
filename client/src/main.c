@@ -2,7 +2,7 @@
 
 #include "networking/networking.h"
 #include <windows.h>
-#include "payload/heartbeat.h"
+#include "payload/payloads/heartbeat.h"
 
 int main(int argc, char* argv[]) {
 	init_networking();

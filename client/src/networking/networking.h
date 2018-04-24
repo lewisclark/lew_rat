@@ -5,7 +5,7 @@
 #include <ws2tcpip.h>
 #include "constants.h"
 #include "util/util.h"
-#include "payload/system.h"
+#include "payload/payloads/system.h"
 
 #pragma comment(lib, "ws2_32.lib")
 
