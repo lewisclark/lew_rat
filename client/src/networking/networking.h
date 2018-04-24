@@ -14,7 +14,6 @@
 extern int init_networking();
 extern int init_socket(SOCKET* socket_out);
 extern int init_listen_socket(SOCKET* socket_out);
-extern int close_socket(SOCKET* sock);
 extern int on_connected_listen_socket(SOCKET* p_socket_server, struct sockaddr_in sockaddr_server);
 extern void listen_on_socket();
 

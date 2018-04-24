@@ -35,7 +35,7 @@ int init_socket(SOCKET* socket_out) {
 	SOCKET sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (sock == INVALID_SOCKET) {
 		log_message("init_socket - Failed to create socket\n");
-		close_socket(&sock);
+		closesocket(sock);
 
 		return 1;
 	}
@@ -47,7 +47,7 @@ int init_socket(SOCKET* socket_out) {
 
 	if (connect(sock, (struct sockaddr*)&server, sizeof(server)) == SOCKET_ERROR) {
 		log_message("init_socket - Failed to connect to server\n");
-		close_socket(&sock);
+		closesocket(sock);
 
 		return 1;
 	}

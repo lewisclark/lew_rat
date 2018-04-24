@@ -30,7 +30,7 @@ int send_payload(struct ClientPayload payload) {
 	json_free_serialized_string(json_payload);
 	json_value_free(payload.json_value_payload);
 	free(buf);
-	close_socket(&sock);
+	closesocket(sock);
 
 	return 0;
 }
