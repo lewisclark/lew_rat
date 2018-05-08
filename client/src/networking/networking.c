@@ -41,7 +41,8 @@ int init_socket(SOCKET* socket_out) {
 	}
 
 	struct sockaddr_in server; // Every piece of data in this struct must be stored network byte order
-	inet_pton(AF_INET, SERVER_ADDRESS, &server.sin_addr);
+	int addr_len;
+	WSAStringToAddress(SERVER_ADDRESS, AF_INET, NULL, &server, &addr_len);
 	server.sin_family = AF_INET; // IPV4
 	server.sin_port = htons(SERVER_LISTENING_PORT); // Make network byte order
 

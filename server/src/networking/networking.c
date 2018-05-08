@@ -74,7 +74,8 @@ int init_client_socket(const char* client_address, SOCKET* socket_out) {
 	}
 
 	struct sockaddr_in sockaddr_client;
-	inet_pton(AF_INET, client_address, &sockaddr_client.sin_addr);
+	int addr_len;
+	WSAStringToAddress(client_address, AF_INET, NULL, &sockaddr_client, &addr_len);
 	sockaddr_client.sin_family = AF_INET;
 	sockaddr_client.sin_port = htons(CLIENT_LISTENING_PORT);
 

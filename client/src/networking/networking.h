@@ -2,7 +2,6 @@
 #define NETWORKING_H
 
 #include <winsock2.h>
-#include <ws2tcpip.h>
 #include "constants.h"
 #include "util/util.h"
 

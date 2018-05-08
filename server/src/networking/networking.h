@@ -6,7 +6,6 @@
 #include <winsock2.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ws2tcpip.h>
 
 #include "constants.h"
 #include "payload/payload_type.h"
